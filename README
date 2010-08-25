@@ -1,0 +1,3 @@
+This tool is intended to be a service for monitoring the status of one or more local ANH server(s) (see http://github.com/swganh/mmoserver) which also allows remote management through a WCF interface.
+
+For more details on the project in general or for specific queries, please go to http://www.swganh.com
