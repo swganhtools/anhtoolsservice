@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fef8abca-1eac-434a-bff3-048b716b1fdc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/ANH_WCF_Service/AnhService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AnhService3.xsd" MetadataType="Schema" ID="020e5aae-8156-4fb6-b747-491504f9a9ed" SourceId="1" SourceUrl="http://localhost/ANH_WCF_Service/AnhService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AnhService.wsdl" MetadataType="Wsdl" ID="79db176e-7c09-4690-8c6c-f9888cf1c0a3" SourceId="1" SourceUrl="http://localhost/ANH_WCF_Service/AnhService.svc?wsdl" />
+    <MetadataFile FileName="AnhService1.xsd" MetadataType="Schema" ID="388cb297-1973-449f-b5f9-ee7bbb305e7d" SourceId="1" SourceUrl="http://localhost/ANH_WCF_Service/AnhService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AnhService.disco" MetadataType="Disco" ID="567ae96a-2733-4ced-bd79-7a6afbdc9126" SourceId="1" SourceUrl="http://localhost/ANH_WCF_Service/AnhService.svc?disco" />
+    <MetadataFile FileName="AnhService.xsd" MetadataType="Schema" ID="35d1841a-007c-4f15-9d73-49bc564e15ce" SourceId="1" SourceUrl="http://localhost/ANH_WCF_Service/AnhService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AnhService2.xsd" MetadataType="Schema" ID="dac76662-0402-4fd4-9864-915d48e018ea" SourceId="1" SourceUrl="http://localhost/ANH_WCF_Service/AnhService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
