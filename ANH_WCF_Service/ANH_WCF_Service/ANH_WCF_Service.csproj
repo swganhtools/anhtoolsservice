@@ -80,7 +80,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ANHProcessCaller\ProcessCaller\ProcessCaller\ProcessCaller.csproj">
+    <ProjectReference Include="..\..\anhtoolslibs\ProcessCaller\ProcessCaller\ProcessCaller.csproj">
       <Project>{008E15BD-AC21-4437-BE80-B53B64DA4D1B}</Project>
       <Name>ProcessCaller</Name>
     </ProjectReference>

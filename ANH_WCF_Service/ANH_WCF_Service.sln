@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANH_WCF_Service", "ANH_WCF_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANH_WCF_Interface", "..\ANH_WCF_Interface\ANH_WCF_Interface\ANH_WCF_Interface.csproj", "{26E94F6F-D5E6-4B0D-AE79-A1E12DE60639}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessCaller", "..\..\ANHProcessCaller\ProcessCaller\ProcessCaller\ProcessCaller.csproj", "{008E15BD-AC21-4437-BE80-B53B64DA4D1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessCaller", "..\anhtoolslibs\ProcessCaller\ProcessCaller\ProcessCaller.csproj", "{008E15BD-AC21-4437-BE80-B53B64DA4D1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
