@@ -264,53 +264,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IAnhService_GetServerStatuses_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSDualHttpBinding_IAnhService_GetAvailableServers_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IAnhService_GetAvailableServers_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -448,6 +402,52 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IAnhService_ServerStatus_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IAnhService_AvailableServers_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/ANH_WCF_Service/AnhService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -477,14 +477,8 @@
   <wsdl:message name="IAnhService_GetServerStatuses_InputMessage">
     <wsdl:part name="parameters" element="tns:GetServerStatuses" />
   </wsdl:message>
-  <wsdl:message name="IAnhService_GetServerStatuses_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetServerStatusesResponse" />
-  </wsdl:message>
   <wsdl:message name="IAnhService_GetAvailableServers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAvailableServers" />
-  </wsdl:message>
-  <wsdl:message name="IAnhService_GetAvailableServers_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAvailableServersResponse" />
   </wsdl:message>
   <wsdl:message name="IAnhService_SubscribeToStatusUpdates_InputMessage">
     <wsdl:part name="parameters" element="tns:SubscribeToStatusUpdates" />
@@ -501,6 +495,12 @@
   <wsdl:message name="IAnhService_ServerMessage_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ServerMessage" />
   </wsdl:message>
+  <wsdl:message name="IAnhService_ServerStatus_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ServerStatus" />
+  </wsdl:message>
+  <wsdl:message name="IAnhService_AvailableServers_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AvailableServers" />
+  </wsdl:message>
   <wsdl:portType msc:usingSession="true" name="IAnhService">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AuthenticateSession">
       <wsdl:input wsaw:Action="http://tempuri.org/IAnhService/AuthenticateSession" message="tns:IAnhService_AuthenticateSession_InputMessage" />
@@ -516,11 +516,9 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetServerStatuses">
       <wsdl:input wsaw:Action="http://tempuri.org/IAnhService/GetServerStatuses" message="tns:IAnhService_GetServerStatuses_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAnhService/GetServerStatusesResponse" message="tns:IAnhService_GetServerStatuses_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetAvailableServers">
       <wsdl:input wsaw:Action="http://tempuri.org/IAnhService/GetAvailableServers" message="tns:IAnhService_GetAvailableServers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAnhService/GetAvailableServersResponse" message="tns:IAnhService_GetAvailableServers_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SubscribeToStatusUpdates">
       <wsdl:input wsaw:Action="http://tempuri.org/IAnhService/SubscribeToStatusUpdates" message="tns:IAnhService_SubscribeToStatusUpdates_InputMessage" />
@@ -532,6 +530,12 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ServerMessage">
       <wsdl:output wsaw:Action="http://tempuri.org/IAnhService/ServerMessage" message="tns:IAnhService_ServerMessage_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ServerStatus">
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnhService/ServerStatus" message="tns:IAnhService_ServerStatus_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AvailableServers">
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnhService/AvailableServers" message="tns:IAnhService_AvailableServers_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSDualHttpBinding_IAnhService" type="tns:IAnhService">
@@ -576,10 +580,6 @@
         <wsp:PolicyReference URI="#WSDualHttpBinding_IAnhService_GetServerStatuses_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IAnhService_GetServerStatuses_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAvailableServers">
       <soap12:operation soapAction="http://tempuri.org/IAnhService/GetAvailableServers" style="document" />
@@ -587,10 +587,6 @@
         <wsp:PolicyReference URI="#WSDualHttpBinding_IAnhService_GetAvailableServers_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IAnhService_GetAvailableServers_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SubscribeToStatusUpdates">
       <soap12:operation soapAction="http://tempuri.org/IAnhService/SubscribeToStatusUpdates" style="document" />
@@ -618,6 +614,20 @@
       <soap12:operation soapAction="http://tempuri.org/IAnhService/ServerMessage" style="document" />
       <wsdl:output>
         <wsp:PolicyReference URI="#WSDualHttpBinding_IAnhService_ServerMessage_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServerStatus">
+      <soap12:operation soapAction="http://tempuri.org/IAnhService/ServerStatus" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IAnhService_ServerStatus_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AvailableServers">
+      <soap12:operation soapAction="http://tempuri.org/IAnhService/AvailableServers" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IAnhService_AvailableServers_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

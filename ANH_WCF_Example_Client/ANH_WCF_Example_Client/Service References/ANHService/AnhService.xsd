@@ -11,12 +11,6 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ServerType" nillable="true" type="tns:ServerType" />
-  <xs:complexType name="ArrayOfServerType">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServerType" type="tns:ServerType" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfServerType" nillable="true" type="tns:ArrayOfServerType" />
   <xs:simpleType name="MessageType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Message" />
@@ -27,4 +21,10 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="MessageType" nillable="true" type="tns:MessageType" />
+  <xs:complexType name="ArrayOfServerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServerType" type="tns:ServerType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServerType" nillable="true" type="tns:ArrayOfServerType" />
 </xs:schema>

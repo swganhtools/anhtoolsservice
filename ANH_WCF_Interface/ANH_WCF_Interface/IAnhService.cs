@@ -20,11 +20,11 @@ namespace ANH_WCF_Interface
         [OperationContract]
         String StopServer(ServerType type, String args);
 
-        [OperationContract]
-        List<IServerStatus> GetServerStatuses();
-        
-        [OperationContract]
-        List<ServerType> GetAvailableServers();
+        [OperationContract(IsOneWay = true)]
+        void GetServerStatuses();
+
+        [OperationContract(IsOneWay = true)]
+        void GetAvailableServers();
 
         [OperationContract]
         String SubscribeToStatusUpdates();

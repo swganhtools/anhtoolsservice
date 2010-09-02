@@ -10,6 +10,12 @@ namespace ANH_WCF_Interface
     public interface IAnhCallback
     {
         [OperationContract(IsOneWay = true)]
-        void ServerMessage(ServerType type, String args, MessageType messtype, String Message);
+        void ServerMessage(ServerType ServType, String Args, MessageType MessType, String Message);
+        
+        [OperationContract(IsOneWay = true)]
+        void ServerStatus(List<IServerStatus> status);
+
+        [OperationContract(IsOneWay = true)]
+        void AvailableServers(List<ServerType> servers);
     }
 }

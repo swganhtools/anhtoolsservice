@@ -13,4 +13,12 @@ namespace ANH_WCF_Example_Client
         public String Message { get; set; }
         public MessageType MessageType { get; set; }
     }
+    public class ServerStatusEventArgs : EventArgs
+    {
+        public List<IServerStatus> StatusList { get; set; }
+    }
+    public class AvailableServerEventArgs : EventArgs
+    {
+        public List<ServerType> ServerList { get; set; }
+    }
 }

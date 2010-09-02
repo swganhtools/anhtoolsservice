@@ -24,15 +24,11 @@ namespace ANH_WCF_Example_Client.ANHService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAnhService/StopServer", ReplyAction="http://tempuri.org/IAnhService/StopServerResponse")]
         string StopServer(ANH_WCF_Interface.ServerType type, string args);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAnhService/GetServerStatuses", ReplyAction="http://tempuri.org/IAnhService/GetServerStatusesResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ANH_WCF_Interface.ServerType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ANH_WCF_Interface.ServerType[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ANH_WCF_Interface.MessageType))]
-        object[] GetServerStatuses();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAnhService/GetServerStatuses")]
+        void GetServerStatuses();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAnhService/GetAvailableServers", ReplyAction="http://tempuri.org/IAnhService/GetAvailableServersResponse")]
-        ANH_WCF_Interface.ServerType[] GetAvailableServers();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAnhService/GetAvailableServers")]
+        void GetAvailableServers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAnhService/SubscribeToStatusUpdates", ReplyAction="http://tempuri.org/IAnhService/SubscribeToStatusUpdatesResponse")]
         string SubscribeToStatusUpdates();
@@ -45,7 +41,17 @@ namespace ANH_WCF_Example_Client.ANHService {
     public interface IAnhServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAnhService/ServerMessage")]
-        void ServerMessage(ANH_WCF_Interface.ServerType type, string args, ANH_WCF_Interface.MessageType messtype, string Message);
+        void ServerMessage(ANH_WCF_Interface.ServerType ServType, string Args, ANH_WCF_Interface.MessageType MessType, string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAnhService/ServerStatus")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ANH_WCF_Interface.ServerType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ANH_WCF_Interface.MessageType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ANH_WCF_Interface.ServerType[]))]
+        void ServerStatus(object[] status);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAnhService/AvailableServers")]
+        void AvailableServers(ANH_WCF_Interface.ServerType[] servers);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -88,12 +94,12 @@ namespace ANH_WCF_Example_Client.ANHService {
             return base.Channel.StopServer(type, args);
         }
         
-        public object[] GetServerStatuses() {
-            return base.Channel.GetServerStatuses();
+        public void GetServerStatuses() {
+            base.Channel.GetServerStatuses();
         }
         
-        public ANH_WCF_Interface.ServerType[] GetAvailableServers() {
-            return base.Channel.GetAvailableServers();
+        public void GetAvailableServers() {
+            base.Channel.GetAvailableServers();
         }
         
         public string SubscribeToStatusUpdates() {

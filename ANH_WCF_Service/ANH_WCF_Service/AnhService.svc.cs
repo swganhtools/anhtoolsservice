@@ -27,6 +27,15 @@ namespace ANH_WCF_Service
 
         private void SendClientMessage(ServerType type, String args, MessageType messagetype, String message)
         {
+            if (callback == null)
+            {
+                try
+                {
+                    callback = OperationContext.Current.GetCallbackChannel<IAnhCallback>();
+                }
+                catch { }
+            }
+
             //if we have a callback send a message
             if(callback!=null)
             {
@@ -173,16 +182,23 @@ namespace ANH_WCF_Service
                 return "Unable to find a suitable server to stop. Aborting.";
         }
 
-        public List<IServerStatus> GetServerStatuses()
+        public void GetServerStatuses()
         {
             if (!AllowObservation && !Authenticated)
             {
-                //SendClientMessage(ServerType.None, "", MessageType.Failed, "You must be Authenticated to perform this task");
-                return null;
+                SendClientMessage(ServerType.None, "", MessageType.Failed, "You must be Authenticated to perform this task");
+                return;
             }
-
-            List<IServerStatus> iss = new List<IServerStatus>(monitor.ServerList);
-            return iss;
+            if (callback != null)
+            {
+                try
+                {
+                    callback.ServerStatus(new List<IServerStatus>(monitor.ServerList));
+                    return;
+                }
+                catch { }
+            }
+            SendClientMessage(ServerType.None, "", MessageType.Failed, "There was a problem with the Callback");
         }
 
         public String SubscribeToStatusUpdates()
@@ -213,14 +229,25 @@ namespace ANH_WCF_Service
             return "Unsubscribe from Service Notices was successful";
         }
 
-        public List<ServerType> GetAvailableServers()
+        public void GetAvailableServers()
         {
             if (!Authenticated)
             {
-                //SendClientMessage(ServerType.None, "", MessageType.Failed, "You must be Authenticated to perform this task");
-                return null;
+                SendClientMessage(ServerType.None, "", MessageType.Failed, "You must be Authenticated to perform this task");
+                return;
             }
-            return monitor.AvailableServers;
+
+            if (callback != null)
+            {
+                try
+                {
+                    callback.AvailableServers(monitor.AvailableServers);
+                    return;
+                }
+                catch {  }
+            }
+
+            SendClientMessage(ServerType.None, "", MessageType.Failed, "There was a problem with the Callback");
         }
         #endregion Service Implementation
        

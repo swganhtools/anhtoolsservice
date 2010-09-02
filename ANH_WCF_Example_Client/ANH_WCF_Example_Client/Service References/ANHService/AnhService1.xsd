@@ -51,23 +51,9 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetServerStatusesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetServerStatusesResult" nillable="true" type="q3:ArrayOfanyType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetAvailableServers">
     <xs:complexType>
       <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAvailableServersResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ANH_WCF_Interface" minOccurs="0" name="GetAvailableServersResult" nillable="true" type="q4:ArrayOfServerType" />
-      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SubscribeToStatusUpdates">
@@ -97,10 +83,24 @@
   <xs:element name="ServerMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ANH_WCF_Interface" minOccurs="0" name="type" type="q5:ServerType" />
-        <xs:element minOccurs="0" name="args" nillable="true" type="xs:string" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ANH_WCF_Interface" minOccurs="0" name="messtype" type="q6:MessageType" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ANH_WCF_Interface" minOccurs="0" name="ServType" type="q3:ServerType" />
+        <xs:element minOccurs="0" name="Args" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ANH_WCF_Interface" minOccurs="0" name="MessType" type="q4:MessageType" />
         <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServerStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="status" nillable="true" type="q5:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AvailableServers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ANH_WCF_Interface" minOccurs="0" name="servers" nillable="true" type="q6:ArrayOfServerType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

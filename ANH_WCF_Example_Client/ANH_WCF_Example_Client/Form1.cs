@@ -17,14 +17,19 @@ namespace ANH_WCF_Example_Client
     {
         AnhCallback ServerCallback = null;
         AnhServiceClient client = null;
+        InstanceContext ic = null;
         public Form1()
         {
             ServerCallback = new AnhCallback();
             InitializeComponent();
             ServerCallback.MessageReceived += new EventHandler<MessageEventArgs>(ServerCallback_MessageReceived);
+            ServerCallback.AvailableServerListReceived += new EventHandler<AvailableServerEventArgs>(ServerCallback_AvailableServerListReceived);
+            ServerCallback.StatusReceived += new EventHandler<ServerStatusEventArgs>(ServerCallback_StatusReceived);
 
-            InstanceContext ic = new InstanceContext(ServerCallback);
+            ic = new InstanceContext(ServerCallback);
             client = new AnhServiceClient(ic);
+            ic.Faulted += new EventHandler(ic_Faulted);
+            ic.Open();
 
             Servers s = new Servers(ServerType.ConnectionServer, "");
             comboBox1.Items.Add(s);
@@ -39,6 +44,36 @@ namespace ANH_WCF_Example_Client
             s = new Servers(ServerType.ZoneServer, "tatooine");
             comboBox1.Items.Add(s);
             comboBox1.SelectedIndex = 0;
+        }
+
+        void ic_Faulted(object sender, EventArgs e)
+        {
+            ic.Abort();
+            ic = new InstanceContext(ServerCallback);
+            ic.Open();
+            listBox1.Items.Add("Channel Fault repaired");
+        }
+
+        void ServerCallback_StatusReceived(object sender, ServerStatusEventArgs e)
+        {
+            if (e.StatusList == null)
+                return;
+
+            listBox1.Items.Add("Got statuses for " + e.StatusList.Count + " Servers");
+            foreach (IServerStatus iss in e.StatusList)
+            {
+                listBox1.Items.Add(iss.type.ToString() + ": " + iss.args + " Running: " + iss.IsRunning + " Crashed: " + iss.IsCrashed + " Uptime (s): " + iss.Uptime / 1000);
+            }
+        }
+
+        void ServerCallback_AvailableServerListReceived(object sender, AvailableServerEventArgs e)
+        {
+            List<ServerType> t = e.ServerList;
+            listBox1.Items.Add(t.Count + " types of servers are available");
+            foreach (ServerType st in t)
+            {
+                listBox1.Items.Add(st);
+            }
         }
 
         void ServerCallback_MessageReceived(object sender, MessageEventArgs e)
@@ -74,36 +109,19 @@ namespace ANH_WCF_Example_Client
         }
         private void GetServerStatus(object sender, EventArgs e)
         {
-            Object[] t = null;
             try
             {
-                t = client.GetServerStatuses();
+                client.GetServerStatuses();
             }
-            catch { }
-            if (t != null)
-            {
-                listBox1.Items.Add("Got statuses for " + t.Length + " Servers");
-                foreach (IServerStatus iss in t)
-                {
-                    listBox1.Items.Add(iss.type.ToString() + ": " + iss.args + " Running: " + iss.IsRunning + " Crashed: " + iss.IsCrashed + " Uptime (s): " + iss.Uptime / 1000);
-                }
-            }
-
-            listBox1.Items.Add("GetServerStatus Ran");
+            catch { listBox1.Items.Add("Error when requesting Server Statuses"); }
         }
         private void GetAvailableServers(object sender, EventArgs e)
         {
-            ServerType[] stype = client.GetAvailableServers();
-            
-            if (stype != null)
+            try
             {
-                List<ServerType> t = new List<ServerType>(stype);
-                listBox1.Items.Add(t.Count + " types of servers are available");
-                foreach (ServerType st in t)
-                {
-                    listBox1.Items.Add(st);
-                }
+                client.GetAvailableServers();
             }
+            catch { listBox1.Items.Add("Error when requesting Available Server List"); }
         }
         void StartServer(object sender, EventArgs e)
         {
