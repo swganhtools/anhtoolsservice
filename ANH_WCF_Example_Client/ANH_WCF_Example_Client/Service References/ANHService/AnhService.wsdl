@@ -638,7 +638,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost/ANH_WCF_Service/AnhService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Spn>host/Lloyd-PC.OGI.local</Spn>
+          <Spn>host/Kevin-PC</Spn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

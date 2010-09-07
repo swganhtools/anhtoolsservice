@@ -71,42 +71,24 @@ namespace ANH_WCF_Service
         private void LoadConfig()
         {
             try
-            {
-                String path = @"C:\Code\swganhTools\ANHService\ANH_WCF_Service\ANH_WCF_Service\Settings.cfg";//HttpContext.Current.Request.PhysicalApplicationPath + "/Settings.cfg";
-                using (StreamReader sr = new StreamReader(path))
-                {
-                    //grab the file
-                    String temp = sr.ReadToEnd();
-                    sr.Close();
-
-                    //split file into a list of lines
-                    List<String> list = new List<string>(temp.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries));
-
-                    //remove any comments
-                    list.RemoveAll(PredicateComment);
-
-                    //check we have at least 3 lines
-                    if (list.Count < 3)
-                        return;
-
+            {               
                     //Get the file variables into the class members
                     try
                     {
-                        AdminPassword = list[0];
+                        AdminPassword = System.Configuration.ConfigurationManager.AppSettings["AdminPassword"];
                     }
                     catch { }
                     try
                     {
-                        AllowObservation = Convert.ToBoolean(list[1]);
+                        AllowObservation = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["AllowObservation"]);
                     }
                     catch { }
                     try
                     {
-                        monitor.SetWorkingDirectory(list[2]);
+                        monitor.SetWorkingDirectory(System.Configuration.ConfigurationManager.AppSettings["WorkingDirectory"]);
                     }
                     catch { }
-                }
-            }
+                }            
             catch { }
         }
         #endregion Config and Tools

@@ -97,6 +97,9 @@
     <None Include="Service References\ANHService\AnhService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ANHService\AnhService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -114,9 +117,6 @@
     <None Include="Service References\ANHService\AnhService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ANHService\AnhService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ANHService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>

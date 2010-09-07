@@ -258,6 +258,7 @@ namespace ANH_WCF_Service
 
         internal string GetWorkingDirectory()
         {
+            
             return WorkingDirectory;
         }
     
